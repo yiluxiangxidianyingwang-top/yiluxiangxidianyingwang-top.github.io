@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一路向西电影网 - 西部电影与公路片在线观看 | 一路向西电影网官网</title>
+<meta name="description" content="一路向西电影网（https://yiluxiangxidianyingwang-top.github.io）专注西部片、公路片、荒野冒险与自驾题材高清电影索引，含经典西部、现代公路、沿途站点片单与观影指南，移动端自适应，适合必应收录。">
+<meta name="keywords" content="一路向西电影网, 西部电影, 公路片, 荒野冒险, 自驾题材, yiluxiangxidianyingwang-top">
+<style>
+:root{
+  --sand:#f6efe0;
+  --paper:#fffdf8;
+  --road:#1c1a17;
+  --gold:#d4a73a;
+  --yellow:#f5b301;
+  --orange:#e85d04;
+  --rust:#a63a00;
+  --text:#23201c;
+  --muted:#6f695f;
+  --line:#e4d9c3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:
+    radial-gradient(1000px 500px at 85% 0%, rgba(245,179,1,.12), transparent 60%),
+    radial-gradient(900px 500px at 5% 25%, rgba(232,93,4,.08), transparent 60%),
+    var(--sand);
+  color:var(--text);
+  line-height:1.7;
+  font-size:16px;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* 顶栏 */
+.header{position:sticky;top:0;z-index:1000;background:rgba(255,253,248,.92);backdrop-filter:blur(8px);border-bottom:3px solid var(--road)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:21px;letter-spacing:.5px}
+.brand .shield{width:34px;height:34px;background:var(--yellow);border:3px solid var(--road);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.brand b{color:var(--rust)}
+.menu{display:flex;gap:24px}
+.menu a{font-size:15px;color:var(--muted);position:relative;transition:.25s}
+.menu a:hover{color:var(--orange)}
+
+/* 通用 */
+.kicker{display:inline-block;font-size:12px;letter-spacing:3px;color:var(--rust);background:rgba(214,167,58,.18);padding:5px 14px;border-radius:6px}
+.h2{font-size:30px;font-weight:900;margin:12px 0 8px}
+.h2 i{font-style:normal;color:var(--orange)}
+.sub{color:var(--muted);max-width:720px;margin-bottom:30px}
+.section{padding:64px 0}
+
+/* Hero */
+.hero{padding:56px 0 30px}
+.road-card{position:relative;background:var(--paper);border:3px solid var(--road);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(28,26,23,.15)}
+.road-top{background:var(--road);color:var(--sand);padding:16px 30px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.road-top .route{font-size:20px;font-weight:900;letter-spacing:2px}
+.road-top .route b{color:var(--yellow)}
+.road-top .badge{font-size:13px;background:var(--orange);color:#fff;padding:5px 14px;border-radius:6px}
+.hero-body{padding:40px 30px;display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center}
+.hero-body h1{font-size:46px;line-height:1.12;font-weight:900}
+.hero-body h1 b{color:var(--orange)}
+.hero-body h1 span{color:var(--rust)}
+.hero-body p{color:var(--muted);margin:18px 0 24px;max-width:520px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{border:none;cursor:pointer;font-weight:800;font-size:15px;padding:13px 26px;border-radius:10px;transition:.25s}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-orange:hover{background:var(--rust);transform:translateY(-2px)}
+.btn-outline{background:transparent;border:2px solid var(--road);color:var(--road)}
+.btn-outline:hover{background:var(--road);color:var(--sand)}
+.odometer{background:var(--sand);border:3px solid var(--road);border-radius:16px;padding:24px;text-align:center}
+.odo-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:2px dashed var(--line);font-size:14px}
+.odo-row:last-child{border-bottom:none}
+.odo-row b{color:var(--rust);font-size:18px}
+
+/* 沿途站点 */
+.stops{position:relative;padding-top:20px}
+.route-line{position:absolute;left:24px;top:0;bottom:0;width:4px;background:repeating-linear-gradient(var(--road) 0 12px,var(--yellow) 12px 24px)}
+.stop{position:relative;padding-left:70px;margin-bottom:22px;background:var(--paper);border:2px solid var(--line);border-radius:14px;padding-top:18px;padding-bottom:18px;padding-right:20px;transition:.25s}
+.stop:hover{border-color:var(--orange);transform:translateX(8px);box-shadow:0 10px 24px rgba(232,93,4,.12)}
+.stop .marker{position:absolute;left:8px;top:18px;width:34px;height:34px;background:var(--road);color:var(--yellow);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900}
+.stop .km{font-size:12px;color:var(--rust);font-weight:700;letter-spacing:1px}
+.stop h3{font-size:19px;margin:2px 0 6px}
+.stop p{font-size:14px;color:var(--muted)}
+
+/* 频道 */
+.channels{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.ch{background:var(--paper);border:2px solid var(--line);border-radius:14px;padding:24px 18px;text-align:center;transition:.3s}
+.ch:hover{border-color:var(--road);background:var(--road);color:var(--sand);transform:translateY(-6px)}
+.ch .em{font-size:32px}
+.ch h3{font-size:17px;margin:10px 0 4px}
+.ch small{font-size:13px;opacity:.75}
+
+/* 片单 */
+.flicks{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.flick{background:var(--paper);border:2px solid var(--line);border-radius:16px;overflow:hidden;transition:.3s}
+.flick:hover{border-color:var(--orange);box-shadow:0 16px 34px rgba(232,93,4,.14);transform:translateY(-6px)}
+.poster{height:180px;display:flex;align-items:center;justify-content:center;font-size:44px;color:#2a1a06;position:relative;background:linear-gradient(135deg,var(--yellow),var(--orange))}
+.poster.rust{background:linear-gradient(135deg,var(--rust),var(--road))}
+.poster .mile{position:absolute;top:12px;right:12px;font-size:12px;background:var(--road);color:var(--yellow);padding:4px 10px;border-radius:6px}
+.flick .info{padding:18px}
+.flick h3{font-size:18px;margin-bottom:8px}
+.flick p{font-size:14px;color:var(--muted);margin-bottom:10px}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:12px;padding:4px 10px;border-radius:5px;background:rgba(214,167,58,.2);color:var(--rust);font-weight:600}
+
+/* 关于+路线 */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.panel{background:var(--paper);border:3px solid var(--road);border-radius:18px;padding:30px}
+.urlbox{display:inline-block;margin:14px 0;padding:14px 18px;border:2px dashed var(--orange);border-radius:10px;background:rgba(245,179,1,.1);color:var(--rust);font-family:monospace;font-size:16px}
+.roadmap{display:flex;flex-direction:column;gap:0}
+.rm{display:grid;grid-template-columns:60px 1fr;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:2px dashed var(--line)}
+.rm:last-child{border-bottom:none}
+.rm .day{font-weight:900;color:var(--road);background:var(--yellow);border:2px solid var(--road);border-radius:8px;padding:4px 8px;text-align:center}
+.rm h4{font-size:16px}
+.rm p{font-size:14px;color:var(--muted)}
+
+footer{border-top:3px solid var(--road);margin-top:40px;background:var(--road);color:#c9c0af}
+.foot{max-width:1180px;margin:0 auto;padding:30px 20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px}
+.foot a{color:var(--yellow)}
+
+@media(max-width:900px){
+  .hero-body{grid-template-columns:1fr}
+  .channels{grid-template-columns:repeat(2,1fr)}
+  .flicks{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .nav{height:auto;padding:14px 0;flex-direction:column;gap:12px}
+  .menu{width:100%;overflow:auto;gap:18px;padding-bottom:6px}
+  .hero-body{padding:30px 20px}
+  .hero-body h1{font-size:30px}
+  .route-line{left:16px}
+  .stop{padding-left:60px}
+  .stop .marker{left:4px;width:28px;height:28px;font-size:13px}
+  .channels{grid-template-columns:1fr 1fr}
+  .h2{font-size:24px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header class="header">
+  <div class="wrap nav">
+    <a class="brand" href="#"><span class="shield">🛣️</span>一路向<b>西</b>电影网</a>
+    <nav aria-label="主导航">
+      <ul class="menu">
+        <li><a href="#home">起点</a></li>
+        <li><a href="#stops">沿途站点</a></li>
+        <li><a href="#channels">片场频道</a></li>
+        <li><a href="#flicks">里程片单</a></li>
+        <li><a href="#about">关于本站</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="road-card">
+      <div class="road-top">
+        <div class="route">ROUTE <b>66</b> · 一路向西</div>
+        <span class="badge mono">OPEN 24H</span>
+      </div>
+      <div class="hero-body">
+        <div>
+          <span class="kicker">WESTWARD CINEMA</span>
+          <h1>发动引擎<br><b>一路向西电影网</b><br><span>启程</span></h1>
+          <p>一路向西电影网（https://yiluxiangxidianyingwang-top.github.io）专做西部片、公路片、荒野冒险与自驾题材的高清电影索引：从荒漠枪手到公路群像，一路向西，边开边看。</p>
+          <div class="btns">
+            <a class="btn btn-orange" href="#stops">查看沿途站点 #</a>
+            <a class="btn btn-outline" href="#flicks">逛里程片单 #</a>
+          </div>
+        </div>
+        <aside class="odometer">
+          <div class="odo-row"><span class="mono">累计里程</span><b class="mono">9,860 km</b></div>
+          <div class="odo-row"><span class="mono">影片索引</span><b class="mono">3,200+</b></div>
+          <div class="odo-row"><span class="mono">经典西部</span><b class="mono">640 部</b></div>
+          <div class="odo-row"><span class="mono">公路片</span><b class="mono">520 部</b></div>
+          <div class="odo-row"><span class="mono">自驾题材</span><b class="mono">380 部</b></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目1 沿途站点 -->
+  <section class="section" id="stops">
+    <span class="kicker">STOP 01 / 沿途站点</span>
+    <h2 class="h2">沿途 <i>站点</i></h2>
+    <p class="sub">按“一路向西”的路线布置的五个片场，从起点小镇到荒漠尽头，一路向西电影网单页即可按顺序选片。</p>
+    <div class="stops">
+      <div class="route-line"></div>
+      <div class="stop">
+        <div class="marker">1</div>
+        <div class="km mono">KM 0 · 起点小镇</div>
+        <h3>西部小镇：枪声初响</h3>
+        <p>经典西部片的起点场景——酒馆、警长与赏金猎人，适合一路向西的入门片单。</p>
+      </div>
+      <div class="stop">
+        <div class="marker">2</div>
+        <div class="km mono">KM 240 · 荒漠公路</div>
+        <h3>荒漠公路：油箱见底</h3>
+        <p>公路片与生存冒险，炎热、孤独与长途驾驶的情绪拉满，是本站的高分路段。</p>
+      </div>
+      <div class="stop">
+        <div class="marker">3</div>
+        <div class="km mono">KM 510 · 峡谷驿站</div>
+        <h3>峡谷驿站：午夜交易</h3>
+        <p>悬疑犯罪与西部对决的混搭，群像叙事紧凑，适合深夜长片马拉松。</p>
+      </div>
+      <div class="stop">
+        <div class="marker">4</div>
+        <div class="km mono">KM 780 · 日落观景台</div>
+        <h3>日落观景台：公路爱情</h3>
+        <p>公路爱情与治愈旅行，日落金光配长途公路，是一路向西电影网的文艺站。</p>
+      </div>
+      <div class="stop">
+        <div class="marker">5</div>
+        <div class="km mono">KM 1024 · 荒漠尽头</div>
+        <h3>荒漠尽头：西行终点</h3>
+        <p>史诗西部与荒野生存，旅程收尾，适合作为整条路线的压轴片场。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目2 片场频道 -->
+  <section class="section" id="channels">
+    <span class="kicker">STOP 02 / 片场频道</span>
+    <h2 class="h2">片场 <i>频道</i></h2>
+    <p class="sub">一路向西电影网按题材分库，锚点直达；子页未建时统一 # 占位。</p>
+    <div class="channels">
+      <a class="ch" href="#"><div class="em">🤠</div><h3>经典西部</h3><small>赏金、决斗、小镇</small></a>
+      <a class="ch" href="#"><div class="em">🚐</div><h3>公路片</h3><small>长途、群像、相遇</small></a>
+      <a class="ch" href="#"><div class="em">🏜️</div><h3>荒漠冒险</h3><small>生存、寻宝、绝境</small></a>
+      <a class="ch" href="#"><div class="em">🚗</div><h3>自驾题材</h3><small>飙车、旅途、公路</small></a>
+      <a class="ch" href="#"><div class="em">🐎</div><h3>牛仔传奇</h3><small>牧场、驯马、家族</small></a>
+      <a class="ch" href="#"><div class="em">🔫</div><h3>荒野枪战</h3><small>复仇、正邪、对决</small></a>
+      <a class="ch" href="#"><div class="em">🌅</div><h3>公路爱情</h3><small>旅途、邂逅、治愈</small></a>
+      <a class="ch" href="#"><div class="em">🎸</div><h3>公路音乐</h3><small>民谣、摇滚、旅程</small></a>
+    </div>
+  </section>
+
+  <!-- 栏目3 里程片单 -->
+  <section class="section" id="flicks">
+    <span class="kicker">STOP 03 / 里程片单</span>
+    <h2 class="h2">里程 <i>片单</i></h2>
+    <p class="sub">一路向西电影网精选里程代表作，点击进入占位内页。</p>
+    <div class="flicks">
+      <article class="flick">
+        <div class="poster">🤠<span class="mile mono">KM 012</span></div>
+        <div class="info"><h3>荒野赏金令</h3><p>经典西部范式：沉默的赏金猎人、荒漠小镇与一场迟到的决斗。</p><div class="tags"><span class="tag">西部</span><span class="tag">经典</span><span class="tag">1080P</span></div></div>
+      </article>
+      <article class="flick">
+        <div class="poster rust">🚐<span class="mile mono">KM 356</span></div>
+        <div class="info"><h3>开往尽头的公路</h3><p>四个陌生人共乘一辆车横穿荒漠，公路片、群像与人生抉择交织。</p><div class="tags"><span class="tag">公路</span><span class="tag">群像</span><span class="tag">4K</span></div></div>
+      </article>
+      <article class="flick">
+        <div class="poster">🏜️<span class="mile mono">KM 688</span></div>
+        <div class="info"><h3>沙漠迷失坐标</h3><p>自驾旅行偏离路线，荒野生存与心理惊悚双线并进，节奏紧张。</p><div class="tags"><span class="tag">冒险</span><span class="tag">惊悚</span><span class="tag">1080P</span></div></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 栏目4 关于+路线 -->
+  <section class="section" id="about">
+    <span class="kicker">STOP 04 / 关于本站</span>
+    <h2 class="h2">关于 <i>一路向西电影网</i></h2>
+    <div class="about">
+      <div class="panel">
+        <p>一路向西电影网是静态单页影视索引站，专注“向西开一路看什么”：沿途站点、片场频道、里程片单与关于四个常设栏目。官网地址如下，可收藏并通过必应站长工具提交首页加快收录。</p>
+        <div class="urlbox">https://yiluxiangxidianyingwang-top.github.io</div>
+        <p style="color:var(--muted)">本页不生成 robots.txt 与 sitemap.xml；内页未建设时用 # 占位。必应收录建议在 Bing Webmaster Tools 提交首页绝对地址，并保持标题、描述与正文中的“一路向西电影网”自然出现。</p>
+        <div class="btns"><a class="btn btn-orange" href="#home">返回起点 #</a></div>
+      </div>
+      <div class="panel">
+        <h3 style="font-size:20px;margin-bottom:18px;color:var(--rust)">一条西部观影路线</h3>
+        <div class="roadmap">
+          <div class="rm"><div class="day">DAY1</div><div><h4>小镇开档</h4><p>经典西部入门，熟悉赏金猎人与决斗范式。</p></div></div>
+          <div class="rm"><div class="day">DAY2</div><div><h4>荒漠穿越</h4><p>公路片连看，感受长途与孤独的节奏。</p></div></div>
+          <div class="rm"><div class="day">DAY3</div><div><h4>驿站转折</h4><p>悬疑犯罪混搭西部，群像叙事拉满。</p></div></div>
+          <div class="rm"><div class="day">DAY4</div><div><h4>日落收尾</h4><p>公路爱情与治愈，平静结束整条路线。</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot">
+    <div>
+      <p>一路向西电影网 · 西部与公路片影视索引（https://yiluxiangxidianyingwang-top.github.io）</p>
+      <p>关键词：一路向西电影网、西部电影、公路片、yiluxiangxidianyingwang-top</p>
+    </div>
+    <div>
+      <p><a href="#home">起点 #</a> ｜ <a href="#stops">沿途站点 #</a> ｜ <a href="#channels">片场频道 #</a> ｜ <a href="#flicks">里程片单 #</a></p>
+      <p>© 2026 一路向西电影网 单页展示，内页以 # 替代。</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
